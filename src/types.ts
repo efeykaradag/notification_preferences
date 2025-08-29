@@ -1,16 +1,9 @@
-// src/types.ts
-
-/**
- * Do Not Disturb window (UTC, HH:MM)
- */
+/** DND window (UTC, HH:MM) */
 export interface DndWindow {
-    /** "HH:MM" 00:00–23:59 (UTC) */
-    start: string;
-    /** "HH:MM" 00:00–23:59 (UTC) */
-    end: string;
+    start: string; // "HH:MM" 00:00–23:59
+    end: string;   // "HH:MM" 00:00–23:59
 }
 
-/** Per-event flag */
 export interface EventFlag {
     enabled: boolean;
 }
@@ -35,7 +28,7 @@ export interface EventPayload {
     eventId: string;
     userId: string;
     eventType: string;
-    /** ISO8601 (UTC, must end with 'Z') */
+    /** ISO8601 (UTC, ends with 'Z') */
     timestamp: string;
 }
 
@@ -47,13 +40,10 @@ export type Decision =
     reason: "DND_ACTIVE" | "USER_UNSUBSCRIBED_FROM_EVENT";
 };
 
-/**
- * Uniform API error payload.
- * `error` is the broad category; `code` is an optional, more specific sub-code.
- */
+/** Uniform API error payload */
 export interface ApiError {
-    error: string;           // e.g. "VALIDATION_ERROR", "INVALID_TIMESTAMP", "NOT_FOUND"
-    code?: string;           // e.g. "INVALID_TYPE", "INVALID_FORMAT", "MISSING_FIELD", "EXTRA_PROPERTY"
-    field?: string;          // e.g. "timestamp", "eventSettings", "dnd.start"
-    details?: string;        // human-friendly explanation
+    error: string;
+    code?: string;
+    field?: string;
+    details?: string;
 }

@@ -11,6 +11,7 @@ export default defineConfig({
                 "**/vitest.config.*",
                 "src/types.ts",
                 "src/http.ts",
+                "src/scripts/**/*.ts"
             ],
             thresholds: { lines: 90, functions: 90, branches: 85, statements: 90 }
         },
